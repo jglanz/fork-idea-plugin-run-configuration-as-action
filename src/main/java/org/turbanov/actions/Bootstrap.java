@@ -2,6 +2,20 @@ package org.turbanov.actions;
 
 import javax.swing.Icon;
 
+import com.intellij.build.BuildWorkspaceConfiguration;
+import com.intellij.ide.util.projectWizard.ProjectBuilder;
+import com.jetbrains.cidr.CidrProjectFixture;
+import com.jetbrains.cidr.cpp.execution.build.CLionBuildUtil;
+import com.jetbrains.cidr.cpp.execution.build.CMakeBuildConfigurationProvider;
+import com.jetbrains.cidr.cpp.execution.build.ClionBuildUtilKt;
+import com.jetbrains.cidr.cpp.execution.external.build.CLionExternalBuildManager;
+import com.jetbrains.cidr.cpp.execution.external.build.CLionExternalBuildManagerKt;
+import com.jetbrains.cidr.cpp.execution.external.build.CLionExternalBuildTarget;
+import com.jetbrains.cidr.cpp.execution.external.build.CLionExternalBuildUtilKt;
+import com.jetbrains.cidr.execution.build.CidrBuildConfigurationProvider;
+import com.jetbrains.cidr.execution.build.CidrBuildTargetAction;
+import com.jetbrains.cidr.execution.build.CidrBuildUtil;
+import com.jetbrains.cidr.execution.build.CidrRunToolbarBuildTargetAction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.DefaultExecutionTarget;
@@ -159,6 +173,14 @@ public class Bootstrap {
     @NotNull
     private List<ExecutionTarget> getTargets(@NotNull RunnerAndConfigurationSettings runConfig) {
         List<ExecutionTarget> targets = ExecutionTargetManager.getInstance(myProject).getTargetsFor(runConfig.getConfiguration());
+        CLionExternalBuildManager buildManager = CLionExternalBuildManager.getInstance(myProject);
+        List<CLionExternalBuildTarget> buildTargets = buildManager.getTargets();
+        for (CLionExternalBuildTarget buildTarget : buildTargets) {
+            log.info("Build target: " + buildTarget.getName());
+//            buildManager.
+//            buildTarget.defaultConfiguration().
+        }
+        //        myProject.getExtensionArea().getExtensionPoint(CLionExternalBuildManager)Service(CidrBuildConfigurationProvider.class);
         if (targets.size() == 1 && DefaultExecutionTarget.INSTANCE.equals(targets.get(0))) {
             return targets;
         }

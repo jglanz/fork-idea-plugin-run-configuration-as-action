@@ -79,11 +79,15 @@ Also, it allows to create button in toolbar to run specific configuration.<br>
   <idea-version since-build="231"/>
 
   <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.clion</depends>
   <extensions defaultExtensionNs="com.intellij">
     <postStartupActivity implementation="org.turbanov.actions.BootstrapActivity"/>
   </extensions>
   <actions>
     <action id="org.turbanov.actions.CreateExecuteIconWithTextAction" class="org.turbanov.actions.CreateExecuteIconWithTextAction" text="Create Icon with Text">
+      <add-to-group group-id="ToolsMenu" anchor="last"/>
+    </action>
+    <action id="org.turbanov.actions.CheckCIDRBuildAction" class="org.turbanov.actions.CheckCIDRBuildAction" text="Check CIDR Build Action">
       <add-to-group group-id="ToolsMenu" anchor="last"/>
     </action>
   </actions>
