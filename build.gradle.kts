@@ -17,9 +17,14 @@ intellij {
   version.set("2024.2.2")
   //type.set("IC") // Target IDE Platform
   type.set("CL")
-  plugins.set(listOf("com.intellij.clion", "com.intellij.cidr.base", "com.intellij.cidr.lang"))
+  plugins.set(listOf("com.intellij.clion", "com.intellij.cidr.base", "com.intellij.cidr.lang",
+    "nativeDebug-plugin",
+    "clion-ide",
+    "terminal"
+    ))
 
   //plugins.set(listOf("com.intellij.modules.clion"))
+  downloadSources.set(true)
 }
 
 tasks {

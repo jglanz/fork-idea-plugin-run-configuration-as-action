@@ -1,5 +1,13 @@
 out/
 .idea/workspace.xml
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/active-tab-highlighter.xml
+.idea/fork-idea-plugin-run-configuration-as-action.iml
+.idea/modules.xml
+.idea/vcs.xml
+
 RunConfigurationAsAction.jar
 /.gradle
 /build
